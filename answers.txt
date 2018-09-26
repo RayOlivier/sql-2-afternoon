@@ -101,3 +101,93 @@ GROUP BY ar.Name */
 /* SELECT DISTINCT BillingPostalCode FROM Invoice */
 
 /* SELECT DISTINCT Company FROM Customer */
+
+/* CREATE TABLE practice_delete ( Name string, Type string, Value integer );
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "silver", 100);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "silver", 100);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150); */
+
+/* SELECT * FROM practice_delete;  */
+
+/* DELETE FROM practice_delete WHERE Type = 'bronze' */
+
+/* DELETE FROM practice_delete WHERE Type = 'silver' */
+
+/* DELETE FROM practice_delete WHERE Value=150; */
+
+
+/* CREATE TABLE users (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(100),
+  email VARCHAR(200)
+) */
+
+/* CREATE TABLE products (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(100),
+  price NUMERIC(10,2)
+) */
+
+/* CREATE TABLE orders(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ref INTEGER,
+  FOREIGN KEY (ref) REFERENCES products(id)
+) */
+
+/* INSERT INTO users (name, email)
+VALUES ('Ray', 'ray@mail.com'),
+('Joanie', 'jmp@gmail.com'),
+('Max', 'maxine@mail.com') */
+
+/* SELECT * FROM users */
+
+/* INSERT INTO products (name, price)
+VALUES ('3DS', 200), ('Dress', 15), ('GameCube Controller', 30) */
+
+/* SELECT * FROM products */
+
+/* INSERT INTO orders (ref)
+VALUES (2),(3),(1) */
+
+/* SELECT * FROM orders */
+
+/* SELECT SUM(p.price) FROM orders o
+JOIN products p ON p.id = o.ref
+WHERE o.id=1 */
+
+
+/* ALTER TABLE orders
+ADD COLUMN user_id INTEGER REFERENCES users(id) */
+
+/* SELECT * FROM orders */
+
+/* UPDATE orders
+SET user_id = 3
+WHERE orders.ref = 3 OR orders.ref = 2 */
+
+/* SELECT * FROM orders */
+
+/* UPDATE orders
+SET user_id = 2
+WHERE orders.ref = 1 */
+
+/* SELECT * FROM orders */
+
+/* SELECT * FROM orders o
+WHERE user_id = 3 */
+
+/* SELECT COUNT(*) AS num_of_orders, u.name FROM orders o 
+JOIN users u ON u.id = o.user_id
+GROUP BY u.name */
+
+/* BLACK DIAMOND */
+/* SELECT u.name, SUM(p.price) AS order_total FROM products p
+JOIN orders o ON o.ref = p.id
+JOIN users u ON u.id = o.user_id
+GROUP BY u.name */
