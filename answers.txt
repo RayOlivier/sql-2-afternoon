@@ -91,4 +91,13 @@ Join Genre g ON t.GenreId = g.GenreId
 WHERE g.name = 'Pop' OR g.name = 'Rock'
 GROUP BY g.name  */
 
+/* SELECT COUNT(*) as num_of_albums, ar.Name FROM Album al
+JOIN Artist ar ON al.ArtistId = ar.ArtistId
+WHERE al.ArtistId = ar.ArtistId
+GROUP BY ar.Name */
 
+/* SELECT DISTINCT Composer FROM Track */
+
+/* SELECT DISTINCT BillingPostalCode FROM Invoice */
+
+/* SELECT DISTINCT Company FROM Customer */
